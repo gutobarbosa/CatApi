@@ -1,6 +1,6 @@
-package br.com.itau.www.catApi;
+package br.com.itau.catApi;
 
-import br.com.itau.www.catApi.http.adapter.BreedRoutes;
+import br.com.itau.catApi.http.adapter.BreedRoutes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

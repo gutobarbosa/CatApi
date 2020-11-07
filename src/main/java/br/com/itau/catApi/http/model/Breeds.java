@@ -1,10 +1,12 @@
-package br.com.itau.www.catApi.http.model;
+package br.com.itau.catApi.http.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Breeds {

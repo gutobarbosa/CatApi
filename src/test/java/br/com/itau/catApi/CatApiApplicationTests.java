@@ -1,4 +1,4 @@
-package br.com.itau.www.catApi;
+package br.com.itau.catApi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
