@@ -9,8 +9,7 @@ public class CatApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CatApiApplication.class, args);
-		BreedRoutes breedRoutes = new BreedRoutes();
-		breedRoutes.getBreeds();
+
 	}
 
 }

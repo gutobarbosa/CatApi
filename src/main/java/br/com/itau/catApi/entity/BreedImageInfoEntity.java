@@ -6,33 +6,33 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
-import java.util.List;
 
 @Entity
 @Builder
 @Data //lombok ( get and set automatico )
-@Table(name = "breeds")
+@Table(name = "breedsimage")
 @AllArgsConstructor // Construtor com parametros
 @NoArgsConstructor //  Construtor vazio
-public class BreedEntity {
+public class BreedImageInfoEntity {
+
     @Id
+    @Column
     private String id;
 
     @Column
-    private String origin;
+    private String url;
 
     @Column
-    private String temperament;
+    private Integer width;
 
     @Column
-    private String name;
+    private Integer height;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "breedEntity")
-    private List<BreedImageInfoEntity> breedImageInfoEntity;
-
+    @ManyToOne
+    @JoinColumn(name = "breeds_name")
+    private BreedEntity breedEntity;
 
 }

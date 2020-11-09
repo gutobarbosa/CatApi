@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Breeds {
-
+    private String id;
     private String origin;
     private String temperament;
     private String name;

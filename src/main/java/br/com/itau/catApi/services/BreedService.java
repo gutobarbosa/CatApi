@@ -1,11 +1,14 @@
 package br.com.itau.catApi.services;
 
 import br.com.itau.catApi.entity.BreedEntity;
-import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 public interface BreedService {
 
-    BreedEntity save(BreedEntity breedEntity );
+   void save(BreedEntity breedEntity);
+   BreedEntity findByName(String name);
+   List findAllByTemperamentContains(String temperament);
+   List findAllByOrigin(String origin);
 
 }
