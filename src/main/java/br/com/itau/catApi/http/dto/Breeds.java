@@ -1,4 +1,4 @@
-package br.com.itau.catApi.http.model;
+package br.com.itau.catApi.http.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

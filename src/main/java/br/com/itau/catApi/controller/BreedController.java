@@ -1,6 +1,7 @@
 package br.com.itau.catApi.controller;
 
 import br.com.itau.catApi.entity.BreedEntity;
+import br.com.itau.catApi.entity.BreedImageInfoEntity;
 import br.com.itau.catApi.http.adapter.BreedRoutes;
 import br.com.itau.catApi.repository.BreedRepository;
 import br.com.itau.catApi.services.BreedService;

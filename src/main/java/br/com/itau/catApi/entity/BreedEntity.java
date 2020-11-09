@@ -1,5 +1,6 @@
 package br.com.itau.catApi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 
 
@@ -31,7 +32,8 @@ public class BreedEntity {
     @Column
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "breedEntity")
+    @JsonIgnore
+    @OneToMany(mappedBy = "breedEntity")
     private List<BreedImageInfoEntity> breedImageInfoEntity;
 
 
