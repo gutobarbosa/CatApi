@@ -1,11 +1,11 @@
 package br.com.itau.catApi.controller;
 
 import br.com.itau.catApi.entity.BreedEntity;
-import br.com.itau.catApi.entity.BreedImageInfoEntity;
 import br.com.itau.catApi.http.adapter.BreedRoutes;
 import br.com.itau.catApi.repository.BreedRepository;
 import br.com.itau.catApi.services.BreedService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,11 +35,11 @@ public class BreedController {
     }
 
     @GetMapping("/breeds/{name}")
-    public ResponseEntity<BreedEntity> getBreedByName(@PathVariable String name) {
+    public ResponseEntity getBreedByName(@PathVariable String name) {
         try {
-            return ResponseEntity.ok(breedService.findByName(name));
+          return ResponseEntity.ok(breedService.findByName(name));
         } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -54,22 +54,22 @@ public class BreedController {
     }
 
     @GetMapping("/breeds/temperaments/{temperament}")
-    public ResponseEntity<List> findAllByTemperamentContains(@PathVariable String temperament) {
+    public ResponseEntity findAllByTemperamentContains(@PathVariable String temperament) {
         try {
             List breedsTemperament = breedService.findAllByTemperamentContains(temperament);
             return ResponseEntity.ok(breedsTemperament);
         } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/breeds/origin/{origin}")
-    public ResponseEntity<List> getBreedByOrigin(@PathVariable String origin) {
+    public ResponseEntity getBreedByOrigin(@PathVariable String origin) {
         try {
             List breedsOrigin = breedService.findAllByOrigin(origin);
             return ResponseEntity.ok(breedsOrigin);
         } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 

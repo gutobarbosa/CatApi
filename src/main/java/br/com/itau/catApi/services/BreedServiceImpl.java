@@ -4,7 +4,7 @@ import br.com.itau.catApi.entity.BreedEntity;
 import br.com.itau.catApi.exception.NotFoundException;
 import br.com.itau.catApi.repository.BreedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +16,13 @@ public class BreedServiceImpl implements BreedService {
     @Autowired
     BreedRepository breedRepository;
 
+
     @Override
     public void save(BreedEntity breedEntity) {
 
         breedRepository.save(breedEntity);
     }
+
 
     @Override
     public BreedEntity findByName(String name) {
@@ -33,6 +35,7 @@ public class BreedServiceImpl implements BreedService {
 
     }
 
+
     @Override
     public List findAllByTemperamentContains(String temperament) {
         List allByTemperamentContains = breedRepository.findAllByTemperamentContains(temperament);
@@ -42,6 +45,7 @@ public class BreedServiceImpl implements BreedService {
         }
         return allByTemperamentContains;
     }
+
 
     @Override
     public List findAllByOrigin(String origin) {

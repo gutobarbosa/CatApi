@@ -6,6 +6,7 @@ import br.com.itau.catApi.entity.BreedEntity;
 import br.com.itau.catApi.services.BreedService;
 import br.com.itau.catApi.services.ImageInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +20,7 @@ public class BreedRoutes {
 
     private static final String PATH = "https://api.thecatapi.com/v1/breeds"; // url da requisição
     private String PATH_IMAGEINFO = "https://api.thecatapi.com/v1/images/search?breed_id=";
+
 
     public void getBreeds() {
         RestTemplate restTemplate = new RestTemplate(); // Modelo de requisição rest
