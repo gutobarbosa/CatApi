@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @Repository
 public interface BreedRepository extends JpaRepository<BreedEntity,Long> {
-
+    List<BreedEntity> findAll();
     Optional<BreedEntity> findByName(String name);
-    List findAllByTemperamentContains(String temperament);
-    List findAllByOrigin(String origin);
+    Optional<List> findAllByTemperamentContains(String temperament);
+    Optional<List> findAllByOrigin(String origin);
 }

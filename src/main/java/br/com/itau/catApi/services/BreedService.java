@@ -9,7 +9,8 @@ public interface BreedService {
 
    void save(BreedEntity breedEntity);
    Optional<BreedEntity> findByName(String name);
-   List findAllByTemperamentContains(String temperament);
-   List findAllByOrigin(String origin);
+   Optional<List> findAllByTemperamentContains(String temperament);
+   Optional<List> findAllByOrigin(String origin);
+   Optional<List> findAll();
 
 }

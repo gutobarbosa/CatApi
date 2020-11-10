@@ -2,14 +2,14 @@ package br.com.itau.catApi.controller;
 
 import br.com.itau.catApi.entity.BreedEntity;
 import br.com.itau.catApi.exception.NotFoundException;
-import br.com.itau.catApi.http.adapter.BreedRoutes;
+import br.com.itau.catApi.http.component.BreedRoutes;
 import br.com.itau.catApi.repository.BreedRepository;
 import br.com.itau.catApi.services.BreedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
+
 
 import java.util.List;
 
@@ -48,8 +48,7 @@ public class BreedController {
     @GetMapping("/breeds")
     public ResponseEntity<List> getBreeds() {
         try {
-            List breedsAll = breedRepository.findAll();
-            return ResponseEntity.ok(breedsAll);
+            return ResponseEntity.ok(breedService.findAll().orElseThrow(() -> new NotFoundException("Pesquisa não encontrada")));
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
@@ -58,8 +57,7 @@ public class BreedController {
     @GetMapping("/breeds/temperaments/{temperament}")
     public ResponseEntity findAllByTemperamentContains(@PathVariable String temperament) {
         try {
-            List breedsTemperament = breedService.findAllByTemperamentContains(temperament);
-            return ResponseEntity.ok(breedsTemperament);
+            return ResponseEntity.ok(breedService.findAllByTemperamentContains(temperament).orElseThrow(() -> new NotFoundException("Pesquisa não encontrada")));
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
@@ -68,8 +66,7 @@ public class BreedController {
     @GetMapping("/breeds/origin/{origin}")
     public ResponseEntity getBreedByOrigin(@PathVariable String origin) {
         try {
-            List breedsOrigin = breedService.findAllByOrigin(origin);
-            return ResponseEntity.ok(breedsOrigin);
+            return ResponseEntity.ok(breedService.findAllByOrigin(origin).orElseThrow(() -> new NotFoundException("Pesquisa não encontrada")));
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
