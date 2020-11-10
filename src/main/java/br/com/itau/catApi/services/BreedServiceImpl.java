@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BreedServiceImpl implements BreedService {
@@ -25,8 +26,8 @@ public class BreedServiceImpl implements BreedService {
 
 
     @Override
-    public BreedEntity findByName(String name) {
-        BreedEntity allByName = breedRepository.findByName(name);
+    public Optional<BreedEntity> findByName(String name) {
+        Optional<BreedEntity> allByName = breedRepository.findByName(name);
 
         if(allByName == null){
             throw new NotFoundException("Pesquisa não encontrada");

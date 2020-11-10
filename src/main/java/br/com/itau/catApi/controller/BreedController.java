@@ -1,6 +1,7 @@
 package br.com.itau.catApi.controller;
 
 import br.com.itau.catApi.entity.BreedEntity;
+import br.com.itau.catApi.exception.NotFoundException;
 import br.com.itau.catApi.http.adapter.BreedRoutes;
 import br.com.itau.catApi.repository.BreedRepository;
 import br.com.itau.catApi.services.BreedService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class BreedController {
     @GetMapping("/breeds/{name}")
     public ResponseEntity getBreedByName(@PathVariable String name) {
         try {
-          return ResponseEntity.ok(breedService.findByName(name));
+            return ResponseEntity.ok(breedService.findByName(name).orElseThrow(() -> new NotFoundException("Pesquisa não encontrada")));
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }

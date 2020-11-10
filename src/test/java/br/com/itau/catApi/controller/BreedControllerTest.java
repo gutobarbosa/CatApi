@@ -8,6 +8,8 @@ import br.com.itau.catApi.services.ImageInfoService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -19,6 +21,8 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @ExtendWith({SpringExtension.class})
@@ -41,7 +45,7 @@ public class BreedControllerTest {
     @MockBean
     BreedRoutes breedRoutes;
 
-    @Autowired
+    @MockBean
     BreedRepository breedRepository;
 
     @Test
@@ -51,7 +55,7 @@ public class BreedControllerTest {
 
         BreedEntity breedEntity = BreedEntity.builder().id("abys").name("Abyssinian").origin("Egypt").temperament("Independent").build();
 
-        BDDMockito.given(breedService.findByName(name)).willReturn(breedEntity);
+        BDDMockito.given(breedService.findByName(name)).willReturn(Optional.of(breedEntity));
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(BREED_URL.concat("/" + name));
 
@@ -60,5 +64,38 @@ public class BreedControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("origin").value(breedEntity.getOrigin()))
                 .andExpect(MockMvcResultMatchers.jsonPath("temperament").value(breedEntity.getTemperament()))
                 .andExpect(MockMvcResultMatchers.jsonPath("id").value(breedEntity.getId()));
+
     }
+
+    @Test
+    public void getBreedByNameNotFoundTest() throws Exception {
+
+        BDDMockito.given(breedService.findByName(Mockito.anyString())).willReturn(Optional.empty());
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(BREED_URL.concat("/"+ "anything"));
+
+        mockMvc.perform(request).andExpect(MockMvcResultMatchers.status().isNotFound());
+
+
+    }
+
+    @Test
+    public void getBreedByOriginTest() throws Exception {
+
+        String origin = "Japan";
+
+        BreedEntity breedEntity = BreedEntity.builder().id("abys").name("Abyssinian").origin("Japan").temperament("Independent").build();
+
+        BDDMockito.given(breedService.findAllByOrigin(origin)).willReturn(Collections.singletonList(breedEntity));
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(BREED_URL.concat("/origin/" + origin));
+
+        mockMvc.perform(request).andExpect(MockMvcResultMatchers.status().isOk())
+             //   .andExpect(MockMvcResultMatchers.jsonPath("name").value(breedEntity.getName()))
+                .andExpect(MockMvcResultMatchers.jsonPath("origin").value(breedEntity.getOrigin()))
+                .andExpect(MockMvcResultMatchers.jsonPath("temperament").value(breedEntity.getTemperament()))
+                .andExpect(MockMvcResultMatchers.jsonPath("id").value(breedEntity.getId()));
+
+    }
+
 }
