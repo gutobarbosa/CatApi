@@ -91,6 +91,7 @@
 * IntelliJ, Eclipse ou uma outra IDE de sua preferencia
 * Postman, Insomnia ou outra ferramenta de requisição de API de sua preferencia.
 * Dbeaver ou a propria ferramenta do PostgreSQL para consultar os dados do banco.
+* Lembrando que no arquivo application.properties deve conter as informações, tais como usuario, senha e etc de acordo com as da sua maquina.
 
 
 
