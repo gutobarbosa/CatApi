@@ -3,10 +3,8 @@ package br.com.itau.catApi.services;
 import br.com.itau.catApi.entity.BreedEntity;
 import br.com.itau.catApi.exception.NotFoundException;
 import br.com.itau.catApi.repository.BreedRepository;
-import ch.qos.logback.core.encoder.EchoEncoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
