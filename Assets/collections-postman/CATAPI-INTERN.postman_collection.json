@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "1e8d5bcf-917d-439b-b749-e45c132621f5",
+		"name": "CATAPI/INTERN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Creating data at BD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/breeds/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"breeds",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Breed by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/breeds/Bengal",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"breeds",
+						"Bengal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Breeds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/breeds",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"breeds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Breeds by Temperament",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/breeds/temperaments/Patrça",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"breeds",
+						"temperaments",
+						"Patrça"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get breeds by Origin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/breeds/origin/France",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"breeds",
+						"origin",
+						"France"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
