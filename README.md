@@ -35,7 +35,7 @@
   - *Ao ser acionada retorna todas as raças que contenham o temperamento passado no final da rota (paramentro temperament)*
 
 - **GET = localhost:8080/breeds**
-  - *Retorna todas as raças cadastradas no banco de dados*
+  - *Ao ser acionada retorna todas as raças cadastradas no banco de dados*
 
 
 
