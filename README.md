@@ -106,8 +106,11 @@ Basta executar o arquivo CatApiApplicationTests que os mesmos irão retornar os 
 
 
 
-###### Abaixo Alguns logs em execução
+###### Abaixo alguns logs em execução
 
 ![Telasdelogs](https://user-images.githubusercontent.com/46411054/98757131-98ce4700-23aa-11eb-95b4-ed6fb5e8f0fb.png)
+
+
+#### E é isso, qualquer duvida estou à disposição. :smiley:
 
 
