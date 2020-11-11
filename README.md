@@ -11,7 +11,7 @@
 
 ### Documentação do projeto
 
-- **Linguagem utilizada no projeto foi a Java.**
+- **Linguagem utilizada no projeto foi Java.**
 - **Framework utilizado:** Springboot.
 - **Bibliotecas utilizadas:** Spring Data JPA, Spring Web, Lombok, modelmapper, logback, Slf4j, Optional, Mockito, Hamcrest.
 - **IDE:** Intellij, Dbeaver.
