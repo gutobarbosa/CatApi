@@ -7,9 +7,7 @@
 ###### vamos lá ?
 
 **A Arquitetura utilizada foi a Restful Api**
-
-<img src="../Assets/Images/Telasdelogs.png" height="400" width="400">
-
+![ArquiteturaCatApi](https://user-images.githubusercontent.com/46411054/98756906-383f0a00-23aa-11eb-9c06-6935ab030411.PNG)
 
 ### Documentação do projeto
 
