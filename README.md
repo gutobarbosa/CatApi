@@ -22,7 +22,7 @@
 
 ### API'S
 
-**Endpoints utilizados neste aplicação**
+**Endpoints utilizados nesta aplicação**
 
 - **POST = localhost:8080/breeds/save**
   - *Aciona a rota externa para que os dados sejam salvos no banco de dados criado*
